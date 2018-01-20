@@ -1,3 +1,7 @@
+body {
+  background: #dfde81;
+  color: #3d380e; }
+
 .keyboard__key--0, .keyboard__key--2, .keyboard__key--4, .keyboard__key--5, .keyboard__key--7, .keyboard__key--9, .keyboard__key--11, .keyboard__key--12, .keyboard__key--14, .keyboard__key--16, .keyboard__key--17, .keyboard__key--19, .keyboard__key--21, .keyboard__key--23 {
   height: 68px;
   background-color: #edebe0; }
