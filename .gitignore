@@ -22,3 +22,4 @@ yarn-error.log*
 /.idea/key20181.iml
 .idea/inspectionProfiles/
 .idea/key20181.iml
+/src/assets/screen.css
