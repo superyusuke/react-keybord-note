@@ -1,0 +1,64 @@
+.keyboard__key--0, .keyboard__key--2, .keyboard__key--4, .keyboard__key--5, .keyboard__key--7, .keyboard__key--9, .keyboard__key--11, .keyboard__key--12, .keyboard__key--14, .keyboard__key--16, .keyboard__key--17, .keyboard__key--19, .keyboard__key--21, .keyboard__key--23 {
+  height: 68px;
+  background-color: #edebe0; }
+
+.keyboard__key--1, .keyboard__key--3, .keyboard__key--6, .keyboard__key--8, .keyboard__key--10, .keyboard__key--13, .keyboard__key--15, .keyboard__key--18, .keyboard__key--20, .keyboard__key--22 {
+  z-index: 5;
+  height: 35px;
+  background-color: #d9e5ff; }
+
+.keyboard {
+  position: relative;
+  width: 280px;
+  height: 70px; }
+  .keyboard__key {
+    position: absolute;
+    width: 17px;
+    border: solid 1px black;
+    font-size: 8px; }
+    .keyboard__key--1 {
+      left: 10px; }
+    .keyboard__key--2 {
+      left: 20px; }
+    .keyboard__key--3 {
+      left: 30px; }
+    .keyboard__key--4 {
+      left: 40px; }
+    .keyboard__key--5 {
+      left: 60px; }
+    .keyboard__key--6 {
+      left: 70px; }
+    .keyboard__key--7 {
+      left: 80px; }
+    .keyboard__key--8 {
+      left: 90px; }
+    .keyboard__key--9 {
+      left: 100px; }
+    .keyboard__key--10 {
+      left: 110px; }
+    .keyboard__key--11 {
+      left: 120px; }
+    .keyboard__key--12 {
+      left: 140px; }
+    .keyboard__key--13 {
+      left: 150px; }
+    .keyboard__key--14 {
+      left: 160px; }
+    .keyboard__key--15 {
+      left: 170px; }
+    .keyboard__key--16 {
+      left: 180px; }
+    .keyboard__key--17 {
+      left: 200px; }
+    .keyboard__key--18 {
+      left: 210px; }
+    .keyboard__key--19 {
+      left: 220px; }
+    .keyboard__key--20 {
+      left: 230px; }
+    .keyboard__key--21 {
+      left: 240px; }
+    .keyboard__key--22 {
+      left: 250px; }
+    .keyboard__key--23 {
+      left: 260px; }

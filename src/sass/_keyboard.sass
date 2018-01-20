@@ -1,0 +1,122 @@
+$white: #edebe0
+$black: #d9e5ff
+
+$whiteHeight: 68px
+$blackHeight: 35px
+
+%white
+  height: #{$whiteHeight}
+  background-color: #{$white}
+
+%black
+  z-index: 5
+  height: #{$blackHeight}
+  background-color: #{$black}
+
+.keyboard
+  position: relative
+  width: 280px
+  height: 70px
+
+  &__key
+    position: absolute
+    width: 17px
+    border: solid 1px black
+
+    // for development
+    font-size: 8px
+
+    &--0
+      @extend %white
+
+    &--1
+      left: 10px
+      @extend %black
+
+    &--2
+      left: 20px
+      @extend %white
+
+    &--3
+      left: 30px
+      @extend %black
+
+    &--4
+      left: 40px
+      @extend %white
+
+    &--5
+      left: 60px
+      @extend %white
+
+    &--6
+      left: 70px
+      @extend %black
+
+    &--7
+      left: 80px
+      @extend %white
+
+    &--8
+      left: 90px
+      @extend %black
+
+    &--9
+      left: 100px
+      @extend %white
+
+    &--10
+      left: 110px
+      @extend %black
+
+    &--11
+      left: 120px
+      @extend %white
+
+    &--12
+      left: 140px
+      @extend %white
+
+    &--13
+      left: 150px
+      @extend %black
+
+    &--14
+      left: 160px
+      @extend %white
+
+    &--15
+      left: 170px
+      @extend %black
+
+    &--16
+      left: 180px
+      @extend %white
+
+    &--17
+      left: 200px
+      @extend %white
+
+    &--18
+      left: 210px
+      @extend %black
+
+    &--19
+      left: 220px
+      @extend %white
+
+    &--20
+      left: 230px
+      @extend %black
+
+    &--21
+      left: 240px
+      @extend %white
+
+    &--22
+      left: 250px
+      @extend %black
+
+    &--23
+      left: 260px
+      @extend %white
