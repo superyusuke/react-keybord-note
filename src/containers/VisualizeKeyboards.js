@@ -10,8 +10,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onChange: (index) => {
-      dispatch({type: 'CHANGE', index: index})
+    onChange: (event, index) => {
+      dispatch(
+        {
+          type: 'CHANGE',
+          text: event.target.value,
+          index: index,
+        },
+      )
     },
   }
 }
