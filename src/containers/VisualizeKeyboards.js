@@ -13,11 +13,14 @@ const mapDispatchToProps = dispatch => {
     onChange: (event, index) => {
       dispatch(
         {
-          type: 'CHANGE',
+          type: 'TEXT_CHANGE',
           text: event.target.value,
           index: index,
         },
       )
+    },
+    onClick: (index) => {
+      dispatch({type: 'COLOR_CHANGE', index: index})
     },
   }
 }

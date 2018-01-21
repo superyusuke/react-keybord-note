@@ -1,4 +1,4 @@
 export const colorClass = {
-  NORMAL: '-normal',
-  RED: '-red'
+  NORMAL: '',
+  PUSHED: 'pushed'
 }
