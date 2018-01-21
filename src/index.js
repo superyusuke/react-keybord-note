@@ -8,7 +8,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 const keyArray = [
-  'a',
+  0,
   1,
   2,
   3,
@@ -37,9 +37,9 @@ const keyArray = [
 const keys = (state = keyArray, action) => {
   switch (action.type) {
     case 'CHANGE':
-      state[action.index] = 'c'
-      console.log(state)
-      return state
+      return state.map((key,index)=>{
+        return index === action.index ? 'change' : key
+      })
     default:
       return state
   }

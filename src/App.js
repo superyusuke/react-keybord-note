@@ -1,17 +1,19 @@
 import React from 'react'
 
-import Keyboard from './components/Keyboard'
+import VisualizeKeyboards from './containers/VisualizeKeyboards'
 import './assets/screen.css'
 import { connect } from 'react-redux'
 
-const App = ({keys}) => {
-  return <Keyboard keys={keys}/>
+const App = ({change}) => {
+  return [<VisualizeKeyboards key='vis-key'/>, <button key='button' onClick={change}>チェンジキーボード</button>]
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
   return {
-    keys: state,
+    change: () => {
+      dispatch({type: 'CHANGE'})
+    },
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(null, mapDispatchToProps)(App)
