@@ -1,31 +1,5 @@
 import React from 'react'
-
-const keyArray = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-]
+import { connect } from 'react-redux'
 
 const keyColorPattern = [
   true,
@@ -54,22 +28,47 @@ const keyColorPattern = [
   true,
 ]
 
-const renderKeys = (keyArray) => {
-  const keys = keyArray.map((o, i) => {
-    return (
-      <div key={i} className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
-        ? 'white'
-        : 'black'}`}>
-        <input value={o} className={`keyboard__input keyboard__input--${keyColorPattern[i]
+const Keyboard = ({keys, change}) => {
+  if (!keys) {
+    return null
+  }
+
+  const renderKeys = (keyArray) => {
+    const clickAlert = () => {
+      //console.log(change)
+      change()
+    }
+
+    const keys = keyArray.map((o, i) => {
+      return (
+        <div key={i} className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
           ? 'white'
-          : 'black'}`}/>
-      </div>
-    )
-  })
+          : 'black'}`}>
+          <input key={i} onChange={clickAlert} value={o} className={`keyboard__input keyboard__input--${keyColorPattern[i]
+            ? 'white'
+            : 'black'}`}/>
+        </div>
+      )
+    })
 
-  return <div className='keyboard'>{keys}</div>
+    return <div className='keyboard'>{keys}</div>
+  }
+
+  return renderKeys(keys)
 }
 
-export const Keyboard = () => {
-  return renderKeys(keyArray)
+const mapStateToProps = (state) => {
+  return {
+    keysss: 'sss',
+  }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    change: () => {
+      dispatch({type: 'CHANGE', index: 1})
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Keyboard)

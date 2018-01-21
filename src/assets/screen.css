@@ -1,5 +1,7 @@
 @charset "UTF-8";
 body {
+  margin: 0;
+  padding: 0;
   background: #dfde81;
   color: #3d380e;
   font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
@@ -25,13 +27,13 @@ body {
     position: absolute;
     width: 17px;
     border: solid 1px black; }
+    .keyboard__key--white {
+      height: 68px;
+      background-color: #edebe0; }
     .keyboard__key--black {
       z-index: 5;
       height: 35px;
       background-color: #d9e5ff; }
-    .keyboard__key--white {
-      height: 68px;
-      background-color: #edebe0; }
     .keyboard__key--0 {
       left: 0; }
     .keyboard__key--1 {
