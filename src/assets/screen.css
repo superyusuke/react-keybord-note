@@ -4,15 +4,6 @@ body {
   color: #3d380e;
   font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
 
-.keyboard__key--0, .keyboard__key--2, .keyboard__key--4, .keyboard__key--5, .keyboard__key--7, .keyboard__key--9, .keyboard__key--11, .keyboard__key--12, .keyboard__key--14, .keyboard__key--16, .keyboard__key--17, .keyboard__key--19, .keyboard__key--21, .keyboard__key--23 {
-  height: 68px;
-  background-color: #edebe0; }
-
-.keyboard__key--1, .keyboard__key--3, .keyboard__key--6, .keyboard__key--8, .keyboard__key--10, .keyboard__key--13, .keyboard__key--15, .keyboard__key--18, .keyboard__key--20, .keyboard__key--22 {
-  z-index: 5;
-  height: 35px;
-  background-color: #d9e5ff; }
-
 .keyboard {
   position: relative;
   width: 280px;
@@ -20,18 +11,29 @@ body {
   .keyboard__input {
     width: 17px;
     height: 35px;
+    padding: 0;
     background: transparent;
-    text-align: center;
     border-style: none;
     font-size: 10px;
-    color: white;
-    padding: 0;
-    margin-top: 35px; }
+    text-align: center;
+    color: white; }
+    .keyboard__input--white {
+      margin: 35px 0 0; }
+    .keyboard__input--black {
+      margin: 0; }
   .keyboard__key {
     position: absolute;
     width: 17px;
-    border: solid 1px black;
-    font-size: 8px; }
+    border: solid 1px black; }
+    .keyboard__key--black {
+      z-index: 5;
+      height: 35px;
+      background-color: #d9e5ff; }
+    .keyboard__key--white {
+      height: 68px;
+      background-color: #edebe0; }
+    .keyboard__key--0 {
+      left: 0; }
     .keyboard__key--1 {
       left: 10px; }
     .keyboard__key--2 {
