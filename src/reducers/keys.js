@@ -1,8 +1,8 @@
-import { colorClass } from '../constant/colorClass'
+import { colorType } from '../constant/colorType'
 
 const keyObject = {
   text: '',
-  colorClass: colorClass.NORMAL,
+  colorType: colorType.NORMAL,
 }
 
 const keyArray = new Array(24).fill(keyObject)
@@ -17,9 +17,9 @@ export const keys = (state = keyArray, action) => {
     case 'COLOR_CHANGE':
       return state.map((key, index) => {
         return index === action.index ? Object.assign({}, key, {
-          colorClass: key.colorClass === colorClass.PUSHED
-            ? colorClass.NORMAL
-            : colorClass.PUSHED,
+          colorType: key.colorType === colorType.PUSHED
+            ? colorType.NORMAL
+            : colorType.PUSHED,
         }) : key
       })
     default:

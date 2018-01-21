@@ -18,7 +18,7 @@ body {
     border-style: none;
     font-size: 10px;
     text-align: center;
-    color: olivedrab; }
+    color: white; }
     .keyboard__input--white {
       margin: 35px 0 0; }
     .keyboard__input--black {
@@ -34,8 +34,6 @@ body {
       z-index: 5;
       height: 35px;
       background-color: #d9e5ff; }
-    .keyboard__key--pushed {
-      background-color: #6261b9; }
     .keyboard__key--0 {
       left: 0; }
     .keyboard__key--1 {
