@@ -4,7 +4,7 @@ import { Keyboard } from '../components/Keyboard'
 
 const mapStateToProps = state => {
   return {
-    keys: state,
+    keys: state.keys,
   }
 }
 
