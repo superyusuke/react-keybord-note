@@ -3,7 +3,7 @@ import React from 'react'
 import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
 
-export const Keyboard = ({keys, onChange, onClick}) => {
+export const Keyboard = ({keys, colorSwitch,onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -18,8 +18,13 @@ export const Keyboard = ({keys, onChange, onClick}) => {
     <div className='keyboard'>
       {keys.map((key, i) => {
           return (
-            <div style={getStyles(key.colorType)} onClick={() => onClick(
-              i)} key={i} className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
+            <div
+              style={getStyles(key.colorType)}
+              onClick={() => onClick(
+                {index: i, color: colorSwitch}
+              )}
+              key={i}
+              className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
               ? 'white'
               : 'black'}`
             }>

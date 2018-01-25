@@ -5,6 +5,7 @@ import { Keyboard } from '../components/Keyboard'
 const mapStateToProps = state => {
   return {
     keys: state.keys,
+    colorSwitch: state.colorSwitch,
   }
 }
 
@@ -19,8 +20,9 @@ const mapDispatchToProps = dispatch => {
         },
       )
     },
-    onClick: (index) => {
-      dispatch({type: 'COLOR_CHANGE', index: index})
+    onClick: ({index, color}) => {
+      console.log('onClick', index, color)
+      dispatch({type: 'COLOR_CHANGE', index, color})
     },
   }
 }

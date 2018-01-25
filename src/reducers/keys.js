@@ -15,11 +15,11 @@ export const keys = (state = keyArray, action) => {
           {text: action.text}) : key
       })
     case 'COLOR_CHANGE':
+      console.log(state)
+      console.log(action.color)
       return state.map((key, index) => {
         return index === action.index ? Object.assign({}, key, {
-          colorType: key.colorType === colorType.PUSHED
-            ? colorType.NORMAL
-            : colorType.PUSHED,
+          colorType: action.color
         }) : key
       })
     default:
