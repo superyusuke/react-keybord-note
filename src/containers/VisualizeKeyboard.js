@@ -10,12 +10,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onChange: (event, index) => {
+    onChange: ({event, keyIndex, keyboardIndex}) => {
       dispatch(
         {
           type: 'TEXT_CHANGE',
           text: event.target.value,
-          index: index,
+          keyIndex,
+          keyboardIndex,
         },
       )
     },

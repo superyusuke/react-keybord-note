@@ -12,9 +12,15 @@ export const keyboards = (state = [keyArray], action) => {
     case 'ADD_KEYBOARD':
       return [...state, keyArray]
     case 'TEXT_CHANGE':
-      return state.map((key, index) => {
-        return index === action.index ? Object.assign({}, key,
-          {text: action.text}) : key
+      console.log(action)
+      return state.map((keyboard, keyboardIndex) => {
+        if (keyboardIndex === action.keyboardIndex) {
+          return keyboard.map((key, index) => {
+            return index === action.keyIndex ? Object.assign({}, key,
+              {text: action.text}) : key
+          })
+        }
+        return keyboard
       })
     case 'COLOR_CHANGE':
       return state.map((keyboard, keyboardIndex) => {

@@ -36,11 +36,18 @@ export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) 
                    ? 'white'
                    : 'black'}`
                  }>
-              <input onChange={(e) => onChange(e,
-                i)} key={i} value={key.text}
-                     className={`keyboard__input keyboard__input--${keyColorPattern[i]
-                       ? 'white'
-                       : 'black'}`}/>
+              <input
+                onChange={(e) => onChange({
+                    event: e,
+                    keyIndex: i,
+                    keyboardIndex,
+                  },
+                )}
+                key={i}
+                value={key.text}
+                className={`keyboard__input keyboard__input--${keyColorPattern[i]
+                  ? 'white'
+                  : 'black'}`}/>
             </div>
           )
         },
