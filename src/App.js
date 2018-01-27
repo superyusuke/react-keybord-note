@@ -5,5 +5,5 @@ import ColorModeSwitcher from './components/ColorModeSwitcher'
 import './assets/screen.css'
 
 export const App = () => {
-  return [<VisualizeKeyboards key='vis-key'/>,<ColorModeSwitcher/>]
+  return [<VisualizeKeyboards key='vis-key'/>,<ColorModeSwitcher key='color-switch'/>]
 }

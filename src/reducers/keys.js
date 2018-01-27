@@ -16,7 +16,6 @@ export const keys = (state = keyArray, action) => {
       })
     case 'COLOR_CHANGE':
       console.log(state)
-      console.log(action.color)
       return state.map((key, index) => {
         return index === action.index ? Object.assign({}, key,
           {colorType: action.color,}) : key
