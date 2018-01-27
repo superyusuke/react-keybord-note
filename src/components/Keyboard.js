@@ -3,28 +3,34 @@ import React from 'react'
 import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
 
-export const Keyboard = ({keys, colorSwitch,onChange, onClick}) => {
+export const Keyboard = ({keys, colorSwitch, onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
     }
 
-    if(color === colorType.ACCENT){
+    if (color === colorType.ACCENT) {
       return {background: 'blue'}
     }
+  }
+
+  const onKeyClick = ({index, color}) => {
+    onClick(
+      {
+        index,
+        color: color === colorSwitch ? colorType.NONE : colorSwitch,
+      },
+    )
   }
 
   return (
     <div className='keyboard'>
       {keys.map((key, i) => {
           return (
-            <div
-              style={getStyles(key.colorType)}
-              onClick={() => onClick(
-                {index: i, color: colorSwitch}
-              )}
-              key={i}
-              className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
+            <div style={getStyles(key.colorType)} onClick={() => onKeyClick({
+              index: i,
+              color: key.colorType,
+            },)} key={i} className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
               ? 'white'
               : 'black'}`
             }>
