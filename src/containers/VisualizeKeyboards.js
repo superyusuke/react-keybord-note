@@ -1,28 +1,10 @@
 import { connect } from 'react-redux'
 
-import { Keyboard } from '../components/Keyboard'
+import { Keyboards } from '../components/Keyboards'
 
 const mapStateToProps = state => {
   return {
-    keys: state.keys,
-    colorSwitch: state.colorSwitch,
+    keyboards: state.keyboards,
   }
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onChange: (event, index) => {
-      dispatch(
-        {
-          type: 'TEXT_CHANGE',
-          text: event.target.value,
-          index: index,
-        },
-      )
-    },
-    onClick: ({index, color}) => {
-      dispatch({type: 'COLOR_CHANGE', index, color})
-    },
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Keyboard)
+export default connect(mapStateToProps)(Keyboards)

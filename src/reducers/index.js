@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
 import { colorSwitch } from './colorSwitch'
-import { keys } from './keys'
+import { keyboards } from './keyboards'
 
 export const keyNote = combineReducers({
   colorSwitch,
-  keys,
+  keyboards,
 })

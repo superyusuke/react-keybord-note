@@ -23,3 +23,4 @@ yarn-error.log*
 .idea/inspectionProfiles/
 .idea/key20181.iml
 /src/assets/screen.css
+/.idea/codeStyles/codeStyleConfig.xml
