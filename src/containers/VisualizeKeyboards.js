@@ -21,7 +21,6 @@ const mapDispatchToProps = dispatch => {
       )
     },
     onClick: ({index, color}) => {
-      console.log('onClick', index, color)
       dispatch({type: 'COLOR_CHANGE', index, color})
     },
   }

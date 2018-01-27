@@ -18,9 +18,8 @@ export const keys = (state = keyArray, action) => {
       console.log(state)
       console.log(action.color)
       return state.map((key, index) => {
-        return index === action.index ? Object.assign({}, key, {
-          colorType: action.color
-        }) : key
+        return index === action.index ? Object.assign({}, key,
+          {colorType: action.color,}) : key
       })
     default:
       return state
