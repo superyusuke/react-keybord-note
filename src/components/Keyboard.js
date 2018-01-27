@@ -10,7 +10,7 @@ export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) 
     }
 
     if (color === colorType.ACCENT) {
-      return {background: 'blue'}
+      return {background: '#c34543'}
     }
   }
 
