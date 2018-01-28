@@ -30,7 +30,7 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
   }
 
   return (
-    <div>
+    <div key={keyboardIndex}>
       <RootSelector selectedRoot={keyboard.selectedRoot}
                     enharmonic={keyboard.enharmonic}
                     keyboardIndex={keyboardIndex}

@@ -10,8 +10,8 @@ const keyboardObject = {
   keys: keyArray,
   enharmonic: 'flat',
   selectedRoot: 0,
-  quality: 'q',
-  romanNumeral: 'r',
+  quality: '',
+  romanNumeral: '',
 }
 
 const plusSelectedRootValue = (selectedRoot) => {
