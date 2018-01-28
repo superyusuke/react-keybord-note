@@ -6,41 +6,57 @@ const keyObject = {
 }
 
 const keyArray = new Array(24).fill(keyObject)
+const keyboardObject = {
+  keys: keyArray,
+  enharmonic: 'flat',
+  selectedRoot: 0,
+}
 
-export const keyboards = (state = [keyArray], action) => {
+export const keyboards = (state = [keyboardObject], action) => {
   switch (action.type) {
     case 'TRANSPOSE':
       if (action.direction === 'MINUS') {
         return state.map(keyboard => {
-          return [...keyboard.slice(1), ...keyboard.slice(0, 1)]
+          return {
+            ...keyboard,
+            keys: [...keyboard.keys.slice(1), ...keyboard.keys.slice(0, 1)]
+          }
         })
       }
       if (action.direction === 'PLUS') {
         return state.map(keyboard => {
-          return [...keyboard.slice(keyboard.length-1), ...keyboard.slice(0, keyboard.length -1)]
+          return {
+            ...keyboard,
+            keys: [...keyboard.keys.slice(keyboard.keys.length - 1), ...keyboard.keys.slice(0, keyboard.keys.length - 1)]
+          }
         })
       }
       break
     case 'ADD_KEYBOARD':
-      return [...state, keyArray]
+      return [...state, keyboardObject]
     case 'TEXT_CHANGE':
-      console.log(action)
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {
-          return keyboard.map((key, index) => {
-            return index === action.keyIndex ? Object.assign({}, key,
-              {text: action.text}) : key
-          })
+          return {
+            ...keyboard,
+            keys: keyboard.keys.map((key, index) => {
+              return index === action.keyIndex ? Object.assign({}, key,
+                {text: action.text}) : key
+            })
+          }
         }
         return keyboard
       })
     case 'COLOR_CHANGE':
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {
-          return keyboard.map((key, index) => {
-            return index === action.keyIndex ? Object.assign({}, key,
-              {colorType: action.color,}) : key
-          })
+          return {
+            ...keyboard,
+            keys: keyboard.keys.map((key, index) => {
+              return index === action.keyIndex ? Object.assign({}, key,
+                {colorType: action.color,}) : key
+            })
+          }
         }
         return keyboard
       })

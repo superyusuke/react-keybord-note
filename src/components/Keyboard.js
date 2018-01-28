@@ -4,7 +4,7 @@ import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
 import { RootSelector } from '../components/RootSelector'
 
-export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) => {
+export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -27,9 +27,9 @@ export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) 
 
   return (
     [
-      <RootSelector selectedRoot={keys.selectedRoot} enharmonic={keys.enharmonic} keyboardIndex={keyboardIndex}/>,
+      <RootSelector selectedRoot={keyboard.selectedRoot} enharmonic={keyboard.enharmonic} keyboardIndex={keyboardIndex}/>,
       <div className='keyboard'>
-        {keys.map((key, i) => {
+        {keyboard.keys.map((key, i) => {
             return (
               <div style={getStyles(key.colorType)} onClick={() => onKeyClick({
                 keyIndex: i,
