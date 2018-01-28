@@ -2,7 +2,8 @@ import React from 'react'
 
 import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
-import { RootSelector } from '../components/RootSelector'
+import RootSelector from '../components/RootSelector'
+import EnharmonicSelector from '../components/EnharmonicSelector'
 
 export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick}) => {
   const getStyles = (color) => {
@@ -27,8 +28,12 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
 
   return (
     [
-      <RootSelector selectedRoot={keyboard.selectedRoot} enharmonic={keyboard.enharmonic} keyboardIndex={keyboardIndex}/>,
-      <div className='keyboard'>
+      <RootSelector selectedRoot={keyboard.selectedRoot}
+                    enharmonic={keyboard.enharmonic}
+                    keyboardIndex={keyboardIndex}
+                    key='root-selector'/>,
+      <EnharmonicSelector keyboardIndex={keyboardIndex} enharmonic={keyboard.enharmonic} key='enharmonic'/>,
+      <div className='keyboard' key='keyboard'>
         {keyboard.keys.map((key, i) => {
             return (
               <div style={getStyles(key.colorType)} onClick={() => onKeyClick({

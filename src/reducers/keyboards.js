@@ -14,6 +14,28 @@ const keyboardObject = {
 
 export const keyboards = (state = [keyboardObject], action) => {
   switch (action.type) {
+    case 'CHANGE_ENHARMONIC':
+      console.log(action)
+      return state.map((keyboard, keyboardIndex) => {
+        if (keyboardIndex === action.keyboardIndex) {
+          return {
+            ...keyboard,
+            enharmonic: action.value,
+          }
+        }
+        return keyboard
+      })
+    case 'CHANGE_ROOT':
+      console.log(action.value)
+      return state.map((keyboard, keyboardIndex) => {
+        if (keyboardIndex === action.keyboardIndex) {
+          return {
+            ...keyboard,
+            selectedRoot: action.value,
+          }
+        }
+        return keyboard
+      })
     case 'TRANSPOSE':
       if (action.direction === 'MINUS') {
         return state.map(keyboard => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const FlatRootArray = [
   'C',
@@ -30,7 +31,7 @@ const SharpRootArray = [
   'B',
 ]
 
-export const RootSelector = ({enharmonic, keyboardIndex, selectedRoot}) => {
+const RootSelector = ({enharmonic, keyboardIndex, selectedRoot, onChange}) => {
   const returnRootArray = (enharmonic) => {
     switch (enharmonic) {
       case 'flat':
@@ -42,9 +43,24 @@ export const RootSelector = ({enharmonic, keyboardIndex, selectedRoot}) => {
     }
   }
   return (
-    <select value={selectedRoot} className={`root-selector--${keyboardIndex}`} >
-      {returnRootArray(enharmonic).map((root, index) => <option value={index}>{root}</option>)}
+    <select
+      onChange={(e) => onChange(
+        {
+          value: e.target.value,
+          keyboardIndex,
+        }
+      )}
+      value={selectedRoot}
+      className={`root-selector--${keyboardIndex}`}>
+      {returnRootArray(enharmonic).map((root, index) => <option key={index} value={index}>{root}</option>)}
     </select>
   )
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onChange: ({value, keyboardIndex}) => dispatch({type: 'CHANGE_ROOT', value, keyboardIndex,})
+  }
+}
+
+export default connect(null, mapDispatchToProps)(RootSelector)
