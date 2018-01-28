@@ -9,6 +9,18 @@ const keyArray = new Array(24).fill(keyObject)
 
 export const keyboards = (state = [keyArray], action) => {
   switch (action.type) {
+    case 'TRANSPOSE':
+      if (action.direction === 'MINUS') {
+        return state.map(keyboard => {
+          return [...keyboard.slice(1), ...keyboard.slice(0, 1)]
+        })
+      }
+      if (action.direction === 'PLUS') {
+        return state.map(keyboard => {
+          return [...keyboard.slice(keyboard.length-1), ...keyboard.slice(0, keyboard.length -1)]
+        })
+      }
+      break
     case 'ADD_KEYBOARD':
       return [...state, keyArray]
     case 'TEXT_CHANGE':
