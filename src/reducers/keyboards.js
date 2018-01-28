@@ -10,6 +10,8 @@ const keyboardObject = {
   keys: keyArray,
   enharmonic: 'flat',
   selectedRoot: 0,
+  quality: 'q',
+  romanNumeral: 'r',
 }
 
 const plusSelectedRootValue = (selectedRoot) => {
@@ -32,6 +34,16 @@ const minusSelectedRootValue = (selectedRoot) => {
 
 export const keyboards = (state = [keyboardObject], action) => {
   switch (action.type) {
+    case 'INPUT_CHANGE':
+      return state.map((keyboard, keyboardIndex) => {
+        if (keyboardIndex === action.keyboardIndex) {
+          return {
+            ...keyboard,
+            [action.name]: action.value,
+          }
+        }
+        return keyboard
+      })
     case 'CHANGE_ENHARMONIC':
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {

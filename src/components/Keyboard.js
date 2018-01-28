@@ -5,7 +5,7 @@ import { colorType } from '../constant/colorType'
 import RootSelector from '../components/RootSelector'
 import EnharmonicSelector from '../components/EnharmonicSelector'
 
-export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick}) => {
+export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick, onInputChange}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -17,7 +17,7 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
   }
 
   const onKeyClick = ({keyIndex, color}) => {
-    if (colorSwitch===colorType.NONE) {
+    if (colorSwitch === colorType.NONE) {
       return
     }
     onClick(
@@ -30,12 +30,24 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
   }
 
   return (
-    [
+    <div>
       <RootSelector selectedRoot={keyboard.selectedRoot}
                     enharmonic={keyboard.enharmonic}
                     keyboardIndex={keyboardIndex}
-                    key='root-selector'/>,
-      <EnharmonicSelector keyboardIndex={keyboardIndex} enharmonic={keyboard.enharmonic} key='enharmonic'/>,
+                    key='root-selector'/>
+      <input name='quality'
+             type='text'
+             onChange={(e) => onInputChange({event: e, keyboardIndex})}
+             value={keyboard.quality}
+             key='quality'
+      />
+      <input name='romanNumeral'
+             type='text'
+             onChange={(e) => onInputChange({event: e, keyboardIndex})}
+             value={keyboard.romanNumeral}
+             key='roman'
+      />
+      <EnharmonicSelector keyboardIndex={keyboardIndex} enharmonic={keyboard.enharmonic} key='enharmonic'/>
       <div className='keyboard' key='keyboard'>
         {keyboard.keys.map((key, i) => {
             return (
@@ -61,8 +73,9 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
                     : 'black'}`}/>
               </div>
             )
-          },
+          }
         )}
-      </div>]
+      </div>
+    </div>
   )
 }
