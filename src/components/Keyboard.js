@@ -4,8 +4,9 @@ import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
 import RootSelector from '../components/RootSelector'
 import EnharmonicSelector from '../components/EnharmonicSelector'
+import Input from '../components/Input'
 
-export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick, onInputChange}) => {
+export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -35,17 +36,13 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
                     enharmonic={keyboard.enharmonic}
                     keyboardIndex={keyboardIndex}
                     key='root-selector'/>
-      <input name='quality'
-             type='text'
-             onChange={(e) => onInputChange({event: e, keyboardIndex})}
+      <Input keyboardIndex={keyboardIndex}
              value={keyboard.quality}
-             key='quality'
+             name='quality'
       />
-      <input name='romanNumeral'
-             type='text'
-             onChange={(e) => onInputChange({event: e, keyboardIndex})}
+      <Input keyboardIndex={keyboardIndex}
              value={keyboard.romanNumeral}
-             key='roman'
+             name='romanNumeral'
       />
       <EnharmonicSelector keyboardIndex={keyboardIndex} enharmonic={keyboard.enharmonic} key='enharmonic'/>
       <div className='keyboard' key='keyboard'>

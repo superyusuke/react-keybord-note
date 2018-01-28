@@ -20,16 +20,6 @@ const mapDispatchToProps = dispatch => {
         },
       )
     },
-    onInputChange: ({event, keyboardIndex}) => {
-      dispatch(
-        {
-          type: 'INPUT_CHANGE',
-          text: event.target.value,
-          name: event.target.name,
-          keyboardIndex,
-        },
-      )
-    },
     onClick: ({keyboardIndex, keyIndex, color}) => {
       dispatch({type: 'COLOR_CHANGE', keyboardIndex, keyIndex, color})
     },
