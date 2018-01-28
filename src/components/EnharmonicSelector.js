@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const EnharmonicSelector = ({onChange, enharmonic, keyboardIndex}) => {
-  console.log('index', keyboardIndex)
   return (
     <select
       onChange={(e) => onChange({value: e.target.value, keyboardIndex})}

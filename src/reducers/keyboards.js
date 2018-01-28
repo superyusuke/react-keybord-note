@@ -12,10 +12,27 @@ const keyboardObject = {
   selectedRoot: 0,
 }
 
+const plusSelectedRootValue = (selectedRoot) => {
+  if (parseInt(selectedRoot, 10) < 11) {
+    return parseInt(selectedRoot, 10) + 1
+  }
+  if (parseInt(selectedRoot, 10) === 11) {
+    return 0
+  }
+}
+
+const minusSelectedRootValue = (selectedRoot) => {
+  if (0 < parseInt(selectedRoot, 10)) {
+    return parseInt(selectedRoot, 10) - 1
+  }
+  if (parseInt(selectedRoot, 10) === 0) {
+    return 11
+  }
+}
+
 export const keyboards = (state = [keyboardObject], action) => {
   switch (action.type) {
     case 'CHANGE_ENHARMONIC':
-      console.log(action)
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {
           return {
@@ -26,7 +43,6 @@ export const keyboards = (state = [keyboardObject], action) => {
         return keyboard
       })
     case 'CHANGE_ROOT':
-      console.log(action.value)
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {
           return {
@@ -37,11 +53,13 @@ export const keyboards = (state = [keyboardObject], action) => {
         return keyboard
       })
     case 'TRANSPOSE':
+      console.log(state)
       if (action.direction === 'MINUS') {
         return state.map(keyboard => {
           return {
             ...keyboard,
-            keys: [...keyboard.keys.slice(1), ...keyboard.keys.slice(0, 1)]
+            keys: [...keyboard.keys.slice(1), ...keyboard.keys.slice(0, 1)],
+            selectedRoot: minusSelectedRootValue(keyboard.selectedRoot)
           }
         })
       }
@@ -49,13 +67,16 @@ export const keyboards = (state = [keyboardObject], action) => {
         return state.map(keyboard => {
           return {
             ...keyboard,
-            keys: [...keyboard.keys.slice(keyboard.keys.length - 1), ...keyboard.keys.slice(0, keyboard.keys.length - 1)]
+            keys: [...keyboard.keys.slice(keyboard.keys.length - 1), ...keyboard.keys.slice(0, keyboard.keys.length - 1)],
+            selectedRoot: plusSelectedRootValue(keyboard.selectedRoot)
           }
         })
       }
       break
     case 'ADD_KEYBOARD':
       return [...state, keyboardObject]
+    case 'DELETE_KEYBOARD':
+      return state.slice(0, state.length - 1)
     case 'TEXT_CHANGE':
       return state.map((keyboard, keyboardIndex) => {
         if (keyboardIndex === action.keyboardIndex) {
