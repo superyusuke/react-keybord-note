@@ -32,30 +32,39 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
 
   return (
     <div key={keyboardIndex}>
-      <RootSelector selectedRoot={keyboard.selectedRoot}
-                    enharmonic={keyboard.enharmonic}
-                    keyboardIndex={keyboardIndex}
-                    key='root-selector'/>
-      <Input keyboardIndex={keyboardIndex}
-             value={keyboard.quality}
-             name='quality'
+      <RootSelector
+        selectedRoot={keyboard.selectedRoot}
+        enharmonic={keyboard.enharmonic}
+        keyboardIndex={keyboardIndex}
+        key='root-selector'/>
+      <Input
+        keyboardIndex={keyboardIndex}
+        value={keyboard.quality}
+        name='quality'
       />
-      <Input keyboardIndex={keyboardIndex}
-             value={keyboard.romanNumeral}
-             name='romanNumeral'
+      <Input
+        keyboardIndex={keyboardIndex}
+        value={keyboard.romanNumeral}
+        name='romanNumeral'
       />
-      <EnharmonicSelector keyboardIndex={keyboardIndex} enharmonic={keyboard.enharmonic} key='enharmonic'/>
+      <EnharmonicSelector
+        keyboardIndex={keyboardIndex}
+        enharmonic={keyboard.enharmonic}
+        key='enharmonic'/>
       <div className='keyboard' key='keyboard'>
         {keyboard.keys.map((key, i) => {
             return (
-              <div style={getStyles(key.colorType)} onClick={() => onKeyClick({
-                keyIndex: i,
-                color: key.colorType,
-              },)} key={i}
-                   className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
-                     ? 'white'
-                     : 'black'}`
-                   }>
+              <div
+                style={getStyles(key.colorType)}
+                onClick={() => onKeyClick({
+                  keyIndex: i,
+                  color: key.colorType,
+                },)}
+                key={i}
+                className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
+                  ? 'white'
+                  : 'black'}`
+                }>
                 <input
                   onChange={(e) => onChange({
                       event: e,
