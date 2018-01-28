@@ -17,6 +17,9 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
   }
 
   const onKeyClick = ({keyIndex, color}) => {
+    if (colorSwitch===colorType.NONE) {
+      return
+    }
     onClick(
       {
         keyboardIndex,
