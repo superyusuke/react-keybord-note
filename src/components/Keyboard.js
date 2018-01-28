@@ -2,6 +2,7 @@ import React from 'react'
 
 import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
+import { RootSelector } from '../components/RootSelector'
 
 export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) => {
   const getStyles = (color) => {
@@ -25,33 +26,35 @@ export const Keyboard = ({keyboardIndex, keys, colorSwitch, onChange, onClick}) 
   }
 
   return (
-    <div className='keyboard'>
-      {keys.map((key, i) => {
-          return (
-            <div style={getStyles(key.colorType)} onClick={() => onKeyClick({
-              keyIndex: i,
-              color: key.colorType,
-            },)} key={i}
-                 className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
-                   ? 'white'
-                   : 'black'}`
-                 }>
-              <input
-                onChange={(e) => onChange({
-                    event: e,
-                    keyIndex: i,
-                    keyboardIndex,
-                  },
-                )}
-                key={i}
-                value={key.text}
-                className={`keyboard__input keyboard__input--${keyColorPattern[i]
-                  ? 'white'
-                  : 'black'}`}/>
-            </div>
-          )
-        },
-      )}
-    </div>
+    [
+      <RootSelector selectedRoot={keys.selectedRoot} enharmonic={keys.enharmonic} keyboardIndex={keyboardIndex}/>,
+      <div className='keyboard'>
+        {keys.map((key, i) => {
+            return (
+              <div style={getStyles(key.colorType)} onClick={() => onKeyClick({
+                keyIndex: i,
+                color: key.colorType,
+              },)} key={i}
+                   className={`keyboard__key keyboard__key--${i} keyboard__key--${keyColorPattern[i]
+                     ? 'white'
+                     : 'black'}`
+                   }>
+                <input
+                  onChange={(e) => onChange({
+                      event: e,
+                      keyIndex: i,
+                      keyboardIndex,
+                    },
+                  )}
+                  key={i}
+                  value={key.text}
+                  className={`keyboard__input keyboard__input--${keyColorPattern[i]
+                    ? 'white'
+                    : 'black'}`}/>
+              </div>
+            )
+          },
+        )}
+      </div>]
   )
 }
