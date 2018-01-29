@@ -31,7 +31,7 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
   }
 
   return (
-    <div key={keyboardIndex}>
+    <div className='keyboard-container' key={keyboardIndex}>
       <RootSelector
         selectedRoot={keyboard.selectedRoot}
         enharmonic={keyboard.enharmonic}
@@ -41,11 +41,13 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
         keyboardIndex={keyboardIndex}
         value={keyboard.quality}
         name='quality'
+        className='quality-input'
       />
       <Input
         keyboardIndex={keyboardIndex}
         value={keyboard.romanNumeral}
         name='romanNumeral'
+        className='roman-numeral-input'
       />
       <EnharmonicSelector
         keyboardIndex={keyboardIndex}

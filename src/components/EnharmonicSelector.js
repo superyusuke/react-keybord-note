@@ -6,7 +6,7 @@ const EnharmonicSelector = ({onChange, enharmonic, keyboardIndex}) => {
     <select
       onChange={(e) => onChange({value: e.target.value, keyboardIndex})}
       value={enharmonic}
-      className={`root-selector--`}>
+      className='enharmonic-selector'>
       <option key='flat' value='flat'>b</option>
       <option key='sharp' value='sharp'>#</option>
     </select>)

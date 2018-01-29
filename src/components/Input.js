@@ -1,18 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Input = ({value, name, onChange, keyboardIndex}) => {
+const Input = ({value, name, className, onChange, keyboardIndex}) => {
   return (
     <input
       name={name}
       onChange={(e) => onChange({event: e, keyboardIndex, name})}
-      value={value}/>
+      value={value}
+      className={className}
+    />
   )
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onChange: ({event, keyboardIndex,name}) => dispatch({
+    onChange: ({event, keyboardIndex, name}) => dispatch({
       type: 'INPUT_CHANGE',
       value: event.target.value,
       keyboardIndex,

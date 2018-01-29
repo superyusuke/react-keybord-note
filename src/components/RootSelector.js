@@ -44,6 +44,7 @@ const RootSelector = ({enharmonic, keyboardIndex, selectedRoot, onChange}) => {
   }
   return (
     <select
+      className='root-selector'
       onChange={(e) => onChange(
         {
           value: e.target.value,
@@ -51,7 +52,7 @@ const RootSelector = ({enharmonic, keyboardIndex, selectedRoot, onChange}) => {
         }
       )}
       value={selectedRoot}
-      className={`root-selector--${keyboardIndex}`}>
+    >
       {returnRootArray(enharmonic).map((root, index) => <option key={index} value={index}>{root}</option>)}
     </select>
   )
