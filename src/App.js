@@ -9,9 +9,11 @@ import './assets/screen.css'
 
 export const App = () => {
   return [
-    <AddDeleteKeyboardButton key='add-key'/>,
-    <TransposeButton key='transpose'/>,
-    <ColorModeSwitcher key='color-switch'/>,
-    <VisualizeKeyboards key='vis-key'/>,
+    <div className='ui-container'>
+      <TransposeButton key='transpose'/>
+      <AddDeleteKeyboardButton key='add-key'/>
+      <ColorModeSwitcher key='color-switch'/>
+    </div>,
+    <VisualizeKeyboards key='vis-key'/>
   ]
 }

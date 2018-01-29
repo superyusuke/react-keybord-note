@@ -6,6 +6,7 @@ import { colorType } from '../constant/colorType'
 const ColorModeSwitcher = ({colorSwitch, onChange}) => {
   return (
     <div>
+      Color:
       <label>
         <input
           type="radio"

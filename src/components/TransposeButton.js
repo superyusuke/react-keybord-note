@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 export const TransposeButton = ({onTransposeClick}) => {
   return (
-    <div>
-      <div onClick={() => onTransposeClick('MINUS')}>Minus</div>
-      <div onClick={() => onTransposeClick('PLUS')}>Plus</div>
+    <div className='transpose'>
+      <div className='transpose__minus' onClick={() => onTransposeClick('MINUS')}>Minus</div>
+      <div className='transpose__plus' onClick={() => onTransposeClick('PLUS')}>Plus</div>
     </div>
   )
 }
