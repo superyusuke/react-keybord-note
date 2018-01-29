@@ -8,8 +8,7 @@ body {
 
 .keyboard-container {
   width: 280px;
-  height: 100px;
-  float: left; }
+  height: 100px; }
 
 .keyboard {
   position: relative;
@@ -130,5 +129,10 @@ body {
   -moz-appearance: none; }
 
 .keyboard-area {
+  display: flex;
+  flex-wrap: wrap;
   width: 560px;
   margin: 0 auto 30px; }
+  @media (max-width: 600px) {
+    .keyboard-area {
+      width: 280px; } }
