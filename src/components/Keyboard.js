@@ -32,27 +32,33 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
 
   return (
     <div className='keyboard-container' key={keyboardIndex}>
-      <RootSelector
-        selectedRoot={keyboard.selectedRoot}
-        enharmonic={keyboard.enharmonic}
-        keyboardIndex={keyboardIndex}
-        key='root-selector'/>
-      <Input
-        keyboardIndex={keyboardIndex}
-        value={keyboard.quality}
-        name='quality'
-        className='quality-input'
-      />
-      <Input
-        keyboardIndex={keyboardIndex}
-        value={keyboard.romanNumeral}
-        name='romanNumeral'
-        className='roman-numeral-input'
-      />
-      <EnharmonicSelector
-        keyboardIndex={keyboardIndex}
-        enharmonic={keyboard.enharmonic}
-        key='enharmonic'/>
+      <div className='keyboard-ui'>
+        <div className='keyboard-ui__left'>
+          <RootSelector
+            selectedRoot={keyboard.selectedRoot}
+            enharmonic={keyboard.enharmonic}
+            keyboardIndex={keyboardIndex}
+            key='root-selector'/>
+          <Input
+            keyboardIndex={keyboardIndex}
+            value={keyboard.quality}
+            name='quality'
+            className='quality-input'
+          />
+          <Input
+            keyboardIndex={keyboardIndex}
+            value={keyboard.romanNumeral}
+            name='romanNumeral'
+            className='roman-numeral-input'
+          />
+        </div>
+        <div className='keyboard-ui__right'>
+          <EnharmonicSelector
+            keyboardIndex={keyboardIndex}
+            enharmonic={keyboard.enharmonic}
+            key='enharmonic'/>
+        </div>
+      </div>
       <div className='keyboard' key='keyboard'>
         {keyboard.keys.map((key, i) => {
             return (

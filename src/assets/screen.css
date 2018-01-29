@@ -6,6 +6,19 @@ body {
   color: #3d380e;
   font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
 
+.keyboard-ui {
+  height: 26px; }
+  .keyboard-ui__left {
+    background-color: #edebe0;
+    width: 220px;
+    display: inline-block;
+    height: 26px; }
+  .keyboard-ui__right {
+    background-color: #edebe0;
+    float: right;
+    width: 28px;
+    height: 26px; }
+
 .keyboard-container {
   width: 280px;
   height: 100px; }
