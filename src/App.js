@@ -9,13 +9,16 @@ import TransposeButton from './components/TransposeButton'
 import './assets/screen.css'
 
 export const App = () => {
-  return [
-    <div className='ui-container'>
-      <TransposeButton key='transpose'/>
-      <AddDeleteKeyboardButton key='add-key'/>
-      <ColorModeSwitcher key='color-switch'/>
-      <TextModeSwitcher key='text-mode-switch'/>
-    </div>,
-    <VisualizeKeyboards key='vis-key'/>,
-  ]
+  return (
+    <div>
+      <div className='ui-container'>
+        <TransposeButton key='transpose'/>
+        <AddDeleteKeyboardButton key='add-key'/>
+        <ColorModeSwitcher key='color-switch'/>
+        <TextModeSwitcher key='text-mode-switch'/>
+      </div>
+      <VisualizeKeyboards key='vis-key'/>
+    </div>
+
+  )
 }
