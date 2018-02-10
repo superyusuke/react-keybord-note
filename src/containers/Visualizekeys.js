@@ -5,6 +5,7 @@ import { Keyboard } from '../components/Keyboard'
 const mapStateToProps = state => {
   return {
     colorSwitch: state.colorSwitch,
+    textMode: state.textMode,
   }
 }
 

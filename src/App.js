@@ -2,6 +2,7 @@ import React from 'react'
 
 import VisualizeKeyboards from './containers/VisualizeKeyboards'
 import ColorModeSwitcher from './components/ColorModeSwitcher'
+import TextModeSwitcher from './components/TextModeSwitcher'
 import AddDeleteKeyboardButton from './components/AddDeleteKeyboardButton'
 import TransposeButton from './components/TransposeButton'
 
@@ -13,7 +14,8 @@ export const App = () => {
       <TransposeButton key='transpose'/>
       <AddDeleteKeyboardButton key='add-key'/>
       <ColorModeSwitcher key='color-switch'/>
+      <TextModeSwitcher key='text-mode-switch'/>
     </div>,
-    <VisualizeKeyboards key='vis-key'/>
+    <VisualizeKeyboards key='vis-key'/>,
   ]
 }

@@ -6,7 +6,7 @@ import RootSelector from '../components/RootSelector'
 import EnharmonicSelector from '../components/EnharmonicSelector'
 import Input from '../components/Input'
 
-export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClick}) => {
+export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, textMode, onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -74,6 +74,7 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, onChange, onClic
                   : 'black'}`
                 }>
                 <input
+                  disabled={textMode}
                   onChange={(e) => onChange({
                       event: e,
                       keyIndex: i,
