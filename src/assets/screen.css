@@ -129,6 +129,8 @@ body {
   border-radius: 0;
   padding: 6px;
   margin: 0; }
+  .roman-numeral-input--view {
+    margin-left: 15px; }
 
 .enharmonic-selector {
   float: right;

@@ -14,7 +14,7 @@ const Input = ({editMode, value, name, className, onChange, keyboardIndex}) => {
   }
 
   if (editMode === 'view') {
-    return <span>{value}</span>
+    return <span className={`${className}--view`}>{value}</span>
   }
 }
 
