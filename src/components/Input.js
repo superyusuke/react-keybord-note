@@ -1,15 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Input = ({value, name, className, onChange, keyboardIndex}) => {
-  return (
-    <input
-      name={name}
-      onChange={(e) => onChange({event: e, keyboardIndex, name})}
-      value={value}
-      className={className}
-    />
-  )
+const Input = ({editMode, value, name, className, onChange, keyboardIndex}) => {
+  if (editMode === 'edit') {
+    return (
+      <input
+        name={name}
+        onChange={(e) => onChange({event: e, keyboardIndex, name})}
+        value={value}
+        className={className}
+      />
+    )
+  }
+
+  if (editMode === 'view') {
+    return <span>{value}</span>
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    editMode: state.editMode,
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -23,4 +35,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Input)
+export default connect(mapStateToProps, mapDispatchToProps)(Input)

@@ -31,7 +31,7 @@ const SharpRootArray = [
   'B',
 ]
 
-const RootSelector = ({enharmonic, keyboardIndex, selectedRoot, onChange}) => {
+const RootSelector = ({editMode, enharmonic, keyboardIndex, selectedRoot, onChange}) => {
   const returnRootArray = (enharmonic) => {
     switch (enharmonic) {
       case 'flat':
@@ -42,20 +42,37 @@ const RootSelector = ({enharmonic, keyboardIndex, selectedRoot, onChange}) => {
         return FlatRootArray
     }
   }
+
+  const editModeConditional = editMode === 'edit'
+
   return (
-    <select
-      className='root-selector'
-      onChange={(e) => onChange(
-        {
-          value: e.target.value,
-          keyboardIndex,
-        }
-      )}
-      value={selectedRoot}
-    >
-      {returnRootArray(enharmonic).map((root, index) => <option key={index} value={index}>{root}</option>)}
-    </select>
+    <span>
+      { editModeConditional &&
+        <select
+          className='root-selector'
+          onChange={(e) => onChange(
+            {
+              value: e.target.value,
+              keyboardIndex,
+            }
+          )}
+          value={selectedRoot}
+        >
+          {returnRootArray(enharmonic).map((root, index) => <option key={index} value={index}>{root}</option>)}
+        </select>
+      }
+      { !editModeConditional &&
+        <span>{returnRootArray(enharmonic)[selectedRoot]}</span>
+      }
+    </span>
+
   )
+}
+
+const mapStateToProps = state => {
+  return {
+    editMode: state.editMode,
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -64,4 +81,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(RootSelector)
+export default connect(mapStateToProps, mapDispatchToProps)(RootSelector)
