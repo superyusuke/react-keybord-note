@@ -13,6 +13,8 @@ body {
     width: 220px;
     display: inline-block;
     height: 26px; }
+    .keyboard-ui__left--view {
+      background-color: transparent; }
   .keyboard-ui__right {
     background-color: #edebe0;
     float: right;

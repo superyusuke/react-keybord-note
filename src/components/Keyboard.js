@@ -1,12 +1,14 @@
 import React from 'react'
 
+import classNames from 'classnames'
+
 import { keyColorPattern } from '../constant/keyColorPattern'
 import { colorType } from '../constant/colorType'
 import RootSelector from '../components/RootSelector'
 import EnharmonicSelector from '../components/EnharmonicSelector'
 import Input from '../components/Input'
 
-export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, textMode, onChange, onClick}) => {
+export const Keyboard = ({editMode, keyboardIndex, keyboard, colorSwitch, textMode, onChange, onClick}) => {
   const getStyles = (color) => {
     if (color === colorType.PUSHED) {
       return {backgroundColor: '#6261b9'}
@@ -30,10 +32,14 @@ export const Keyboard = ({keyboardIndex, keyboard, colorSwitch, textMode, onChan
     )
   }
 
+  console.log(editMode)
+
   return (
     <div className='keyboard-container' key={keyboardIndex}>
       <div className='keyboard-ui'>
-        <div className='keyboard-ui__left'>
+        <div
+          className={classNames('keyboard-ui__left', {'keyboard-ui__left--view': editMode === 'view'})}
+        >
           <RootSelector
             selectedRoot={keyboard.selectedRoot}
             enharmonic={keyboard.enharmonic}

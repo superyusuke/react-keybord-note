@@ -6,6 +6,7 @@ const mapStateToProps = state => {
   return {
     colorSwitch: state.colorSwitch,
     textMode: state.textMode,
+    editMode: state.editMode,
   }
 }
 
