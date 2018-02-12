@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 
 import { colorType } from '../constant/colorType'
 
-const ColorModeSwitcher = ({colorSwitch, onChange}) => {
+const ColorModeSwitcher = ({editMode, colorSwitch, onChange}) => {
+  if (editMode === 'view') {
+    return null
+  }
   return (
     <div>
       Color:
@@ -47,6 +50,7 @@ const ColorModeSwitcher = ({colorSwitch, onChange}) => {
 const mapStateToProps = state => {
   return {
     colorSwitch: state.colorSwitch,
+    editMode: state.editMode,
   }
 }
 

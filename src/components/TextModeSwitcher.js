@@ -1,7 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const TextModeSwitcher = ({textMode, onChange}) => {
+const TextModeSwitcher = ({editMode, textMode, onChange}) => {
+  if (editMode === 'view') {
+    return null
+  }
   return (
     <div>
       Text Mode:
@@ -34,6 +37,7 @@ const TextModeSwitcher = ({textMode, onChange}) => {
 const mapStateToProps = state => {
   return {
     textMode: state.textMode,
+    editMode: state.editMode,
   }
 }
 
