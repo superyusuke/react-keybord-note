@@ -32,8 +32,6 @@ export const Keyboard = ({editMode, keyboardIndex, keyboard, colorSwitch, textMo
     )
   }
 
-  console.log(editMode)
-
   return (
     <div className='keyboard-container' key={keyboardIndex}>
       <div className='keyboard-ui'>
@@ -58,12 +56,14 @@ export const Keyboard = ({editMode, keyboardIndex, keyboard, colorSwitch, textMo
             className='roman-numeral-input'
           />
         </div>
-        <div className='keyboard-ui__right'>
-          <EnharmonicSelector
-            keyboardIndex={keyboardIndex}
-            enharmonic={keyboard.enharmonic}
-            key='enharmonic'/>
-        </div>
+        { editMode==='edit' &&
+          <div className='keyboard-ui__right'>
+            <EnharmonicSelector
+              keyboardIndex={keyboardIndex}
+              enharmonic={keyboard.enharmonic}
+              key='enharmonic'/>
+          </div>
+        }
       </div>
       <div className='keyboard' key='keyboard'>
         {keyboard.keys.map((key, i) => {
